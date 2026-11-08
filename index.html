@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Diwali · शुभ दीपावली — a page full of light</title>
+<meta name="description" content="दीपावली की शुभकामनाएँ / A Diwali greeting page made by Nitin: light a diya, leave a wish, and send the link to someone you love.">
+<meta name="author" content="Nitin">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-display:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-body:'Jost', 'Helvetica Neue', Arial, sans-serif;
+    --font-dev:'Tiro Devanagari Hindi', 'Noto Serif Devanagari', 'Cormorant Garamond', serif;
+
+    --night:#14060a;
+    --night-2:#200a12;
+    --surface:rgba(255,232,196,.045);
+    --surface-2:rgba(255,232,196,.075);
+    --border:rgba(233,187,99,.18);
+    --border-bright:rgba(233,187,99,.38);
+
+    --gold:#e9bb63;
+    --gold-bright:#ffd98a;
+    --saffron:#ef8a3c;
+    --terracotta:#b6452c;
+    --jade:#7fa07a;
+    --cream:#f7ecd8;
+    --text:#f0e0c8;
+    --text-dim:#bda78f;
+
+    --shadow:0 18px 50px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background-color:var(--night);
+    background-image:
+      radial-gradient(ellipse 130% 70% at 50% -15%, #45131c 0%, #260c14 34%, #14060a 72%),
+      radial-gradient(ellipse 90% 55% at 50% 105%, rgba(239,138,60,.16) 0%, transparent 62%);
+    background-attachment:fixed;
+    color:var(--text);
+    font-family:var(--font-body);
+    font-weight:300;
+    font-size:17px;
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- bilingual pairs ---------- */
+  .hi{font-family:var(--font-dev)}
+  .pair{display:block}
+  .pair > .hi{display:block;line-height:1.7}
+  .pair > .en{
+    display:block;font-family:var(--font-body);color:var(--text-dim);
+    font-size:.78em;line-height:1.55;margin-top:.3em;letter-spacing:.01em;
+  }
+  .pair--tight > .en{font-size:.7em;margin-top:.15em}
+  .pair--head > .en{font-size:.5em;line-height:1.35;margin-top:.25em}
+  .pair--btn{display:flex;flex-direction:column;gap:1px;align-items:center;line-height:1.3}
+  .pair--btn > .hi{line-height:1.4}
+  .pair--btn > .en{
+    font-size:.68em;letter-spacing:.14em;text-transform:uppercase;
+    margin:0;color:inherit;opacity:.72;line-height:1.3;
+  }
+
+  /* ---------- sky ---------- */
+  #sky{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+  .stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .star{
+    position:absolute;border-radius:50%;background:#ffe9c4;
+    animation:twinkle var(--dur,5s) ease-in-out infinite alternate;
+    animation-delay:var(--delay,0s);
+  }
+  @keyframes twinkle{from{opacity:.15;transform:scale(.8)}to{opacity:.85;transform:scale(1)}}
+
+  /* ---------- shell ---------- */
+  main{position:relative;z-index:2}
+  .wrap{width:100%;max-width:1060px;margin:0 auto;padding:0 26px}
+  section{position:relative}
+
+  .eyebrow{
+    font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--gold);font-weight:400;margin:0;
+  }
+  .eyebrow .dot{color:var(--text-dim);padding:0 .5em}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(56px,9vh,104px) 0 clamp(24px,5vh,48px);text-align:center}
+  .hero__inner{max-width:900px;margin:0 auto}
+
+  .dev-line{
+    font-family:var(--font-dev);
+    font-size:clamp(20px,2.6vw,28px);
+    color:var(--gold);
+    letter-spacing:.04em;
+    margin:16px 0 18px;
+    animation:fadeUp .9s ease-out both;
+  }
+
+  h1{
+    font-family:var(--font-display);
+    font-weight:300;
+    font-size:clamp(54px,12vw,140px);
+    line-height:.9;
+    letter-spacing:-.015em;
+    margin:0;
+    color:var(--cream);
+    text-shadow:0 0 60px rgba(239,138,60,.22);
+    animation:fadeUp 1s .05s ease-out both;
+  }
+  h1 em{
+    font-style:italic;
+    color:var(--gold-bright);
+    display:block;
+    font-size:.62em;
+    letter-spacing:.005em;
+    line-height:1.1;
+    margin-top:.1em;
+  }
+
+  .hero__hindi{
+    font-family:var(--font-dev);
+    font-size:clamp(17px,2.2vw,23px);
+    color:var(--gold-bright);
+    margin:26px 0 0;
+    letter-spacing:.02em;
+    animation:fadeUp 1s .12s ease-out both;
+  }
+
+  .hero__to{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:clamp(18px,2.2vw,23px);
+    color:var(--gold);
+    margin:20px 0 0;
+    animation:fadeUp 1s .18s ease-out both;
+  }
+  .hero__to .hi{font-family:var(--font-dev);font-style:normal;font-size:.95em}
+  .hero__to strong{font-style:normal;font-weight:400;color:var(--cream)}
+  .hero__to .pair > .en{font-family:var(--font-display);font-style:italic;font-size:.8em;color:rgba(189,167,143,.95)}
+
+  .hero__lead{
+    max-width:40ch;
+    margin:20px auto 0;
+    color:var(--text-dim);
+    font-size:clamp(15.5px,1.6vw,18px);
+    line-height:1.7;
+    animation:fadeUp 1s .24s ease-out both;
+  }
+  .hero__lead .hi{color:var(--text);font-size:1.02em}
+
+  .hero__actions{
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+    margin:34px 0 0;
+    animation:fadeUp 1s .3s ease-out both;
+  }
+
+  .btn{
+    font-family:var(--font-body);font-size:14px;letter-spacing:.1em;text-transform:uppercase;
+    padding:13px 26px;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block;
+    background:transparent;color:var(--cream);
+    border:1px solid var(--border-bright);
+    transition:background .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
+  }
+  .btn:hover{background:rgba(233,187,99,.12);border-color:var(--gold);transform:translateY(-1px)}
+  .btn--solid{
+    background:linear-gradient(180deg,#f0b459,#d99436);
+    color:#2a1008;border-color:transparent;font-weight:500;
+  }
+  .btn--solid:hover{background:linear-gradient(180deg,#ffcb78,#e9a544);color:#2a1008}
+  .btn:focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px}
+  .btn .hi{font-size:15px;letter-spacing:.02em;text-transform:none}
+
+  /* ---------- divider ---------- */
+  .rule{display:flex;align-items:center;gap:18px;margin:clamp(48px,7vw,84px) auto;max-width:1060px;padding:0 26px}
+  .rule::before,.rule::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--border-bright),transparent)}
+  .rule span{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex:none}
+
+  /* ---------- diya strip ---------- */
+  .lamps{padding:8px 0 0;text-align:center}
+  .lamps__stage{
+    display:flex;align-items:flex-end;justify-content:center;
+    gap:clamp(4px,2.6vw,26px);flex-wrap:nowrap;
+    padding:10px 0 4px;
+  }
+  .diya{
+    --size:clamp(64px,13vw,112px);
+    width:var(--size);height:auto;padding:0;border:0;background:none;
+    position:relative;display:flex;flex-direction:column;align-items:center;
+  }
+  .diya svg{width:100%;height:auto;display:block;overflow:visible}
+  .diya__flame{
+    opacity:0;transform:scale(.35) translateY(6px);
+    transform-origin:60px 82px;
+    transition:opacity .5s ease, transform .6s cubic-bezier(.2,1.4,.4,1);
+  }
+  .diya__halo{opacity:0;transition:opacity .8s ease}
+  .diya__body{opacity:.72;transition:opacity .5s ease}
+  .diya.lit .diya__flame{opacity:1;transform:scale(1) translateY(0);animation:flicker 3.4s ease-in-out infinite}
+  .diya.lit .diya__halo{opacity:1}
+  .diya.lit .diya__body{opacity:1}
+  @keyframes flicker{
+    0%,100%{transform:scale(1) translateY(0) rotate(0deg)}
+    28%{transform:scale(1.04,.97) translateY(-1px) rotate(-1.4deg)}
+    52%{transform:scale(.97,1.05) translateY(0) rotate(1.2deg)}
+    76%{transform:scale(1.02,.99) translateY(-.5px) rotate(-.6deg)}
+  }
+  .lamps__count{
+    margin:26px 0 0;font-size:15px;letter-spacing:.02em;color:var(--text);
+    min-height:2.4em;
+  }
+  .lamps__count .en{font-size:.82em;letter-spacing:.02em}
+  .lamps__count b{color:var(--gold);font-weight:400}
+  .lamps__done{
+    margin:10px 0 0;opacity:0;transition:opacity .8s ease;
+  }
+  .lamps__done .hi{font-family:var(--font-dev);font-size:clamp(19px,2.4vw,25px);color:var(--gold-bright)}
+  .lamps__done .en{font-family:var(--font-display);font-style:italic;font-size:clamp(15px,1.7vw,18px);color:var(--gold);margin-top:.2em}
+  .lamps__done.show{opacity:1}
+
+  /* ---------- wishes cards ---------- */
+  .section-head{max-width:660px;margin-bottom:38px}
+  .section-head h2{
+    font-family:var(--font-dev);font-weight:400;
+    font-size:clamp(27px,3.9vw,44px);line-height:1.28;margin:14px 0 0;color:var(--cream);
+  }
+  .section-head h2 .en{
+    display:block;font-family:var(--font-display);font-weight:300;font-style:italic;
+    line-height:1.2;font-size:.6em;color:var(--gold);margin-top:.25em;
+  }
+  .section-head > p.intro{color:var(--text-dim);margin:16px 0 0;font-size:16px}
+  .section-head > p.intro .hi{color:var(--text);font-size:1.02em}
+
+  .wish-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .wish-grid > *{min-width:0}
+  .wish-card{
+    position:relative;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-top:1px solid var(--border-bright);
+    border-radius:3px;
+    padding:30px 26px 28px;
+    transition:background .3s ease, transform .3s ease, border-color .3s ease;
+    animation:fadeUp .8s ease-out both;
+    animation-delay:calc(var(--i,0)*.09s + .05s);
+  }
+  .wish-card:hover{background:var(--surface-2);transform:translateY(-3px);border-color:var(--border-bright)}
+  .wish-card__dev{
+    font-family:var(--font-dev);font-size:21px;color:var(--gold);display:block;margin-bottom:12px;
+  }
+  .wish-card h3{
+    font-family:var(--font-dev);font-weight:400;font-size:23px;line-height:1.35;
+    margin:0 0 12px;color:var(--cream);letter-spacing:.01em;
+  }
+  .wish-card h3 .en{
+    display:block;font-family:var(--font-display);font-style:italic;font-weight:300;
+    font-size:.78em;color:var(--gold);margin-top:.2em;line-height:1.25;
+  }
+  .wish-card p{margin:0;font-size:15.5px;line-height:1.75}
+  .wish-card p .hi{color:var(--text);font-size:1.02em}
+  .wish-card p .en{color:var(--text-dim);font-size:.82em;margin-top:.45em;line-height:1.6}
+  .wish-card__num{
+    position:absolute;top:22px;right:24px;font-size:11px;letter-spacing:.22em;color:rgba(233,187,99,.5);
+  }
+
+  /* ---------- shloka ---------- */
+  .shloka{
+    text-align:center;max-width:760px;margin:clamp(56px,8vw,92px) auto 0;padding:0 26px;
+  }
+  .shloka .sanskrit{
+    font-family:var(--font-dev);font-size:clamp(20px,2.8vw,28px);line-height:1.6;
+    color:var(--gold-bright);margin:0;
+  }
+  .shloka .hindi{
+    font-family:var(--font-dev);font-size:clamp(16px,1.9vw,19px);line-height:1.8;
+    color:var(--text);margin:18px 0 0;
+  }
+  .shloka .english{
+    font-family:var(--font-display);font-style:italic;font-size:clamp(16px,1.8vw,19px);
+    line-height:1.55;color:var(--text-dim);margin:10px 0 0;
+  }
+  .shloka cite{
+    display:block;margin-top:20px;font-style:normal;font-size:11.5px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--text-dim);
+  }
+
+  /* ---------- wish wall ---------- */
+  .wall{padding-top:0}
+  .wish-form{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px}
+  .wish-form input{
+    flex:1 1 280px;min-width:0;
+    font-family:var(--font-dev);font-size:16px;color:var(--cream);
+    background:rgba(255,232,196,.05);
+    border:1px solid var(--border);border-radius:2px;
+    padding:14px 18px;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .wish-form input::placeholder{color:rgba(189,167,143,.75)}
+  .wish-form input:focus{outline:none;border-color:var(--gold);background:rgba(255,232,196,.08)}
+
+  .wall__list{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:14px;
+    min-height:96px;
+  }
+  .wall__list > *{min-width:0}
+  .wall__empty{
+    grid-column:1/-1;color:var(--text-dim);
+    border:1px dashed var(--border);border-radius:3px;padding:26px;text-align:center;
+  }
+  .wall__empty .hi{color:var(--text);font-size:16.5px}
+  .wall__empty .en{font-style:italic;font-size:.85em;margin-top:.3em;display:block}
+
+  .lantern{
+    position:relative;overflow:hidden;
+    background:linear-gradient(180deg,rgba(255,214,150,.09),rgba(255,214,150,.03));
+    border:1px solid var(--border);border-radius:3px;
+    padding:18px 20px 16px 40px;
+    animation:lanternIn .7s cubic-bezier(.2,.9,.3,1) both;
+  }
+  .lantern::before{
+    content:'';position:absolute;left:18px;top:21px;width:9px;height:9px;border-radius:50%;
+    background:var(--gold-bright);box-shadow:0 0 12px 3px rgba(255,217,138,.5);
+  }
+  .lantern p{
+    margin:0;font-family:var(--font-dev);font-size:17px;line-height:1.65;
+    color:var(--cream);overflow-wrap:break-word;
+  }
+  .lantern figcaption{margin-top:10px;font-size:11.5px;letter-spacing:.12em;color:var(--text-dim)}
+  @keyframes lanternIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+
+  /* ---------- personalise ---------- */
+  .card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:3px;
+    padding:clamp(26px,4vw,40px);
+    box-shadow:var(--shadow);
+  }
+  .card--hero{
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(239,138,60,.14), transparent 65%),
+      rgba(255,232,196,.05);
+    border-color:var(--border-bright);
+  }
+  .card h2{
+    font-family:var(--font-dev);font-weight:400;font-size:clamp(24px,3.2vw,34px);
+    margin:0 0 10px;color:var(--cream);line-height:1.3;
+  }
+  .card h2 .en{
+    display:block;font-family:var(--font-display);font-style:italic;font-weight:300;
+    font-size:.72em;color:var(--gold);margin-top:.25em;
+  }
+  .card p.note{color:var(--text-dim);margin:0 0 26px;font-size:15.5px;max-width:56ch}
+  .card p.note .hi{color:var(--text);font-size:1.02em}
+  .card p.note .en{font-size:.85em;margin-top:.3em;display:block}
+
+  .fields{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
+  .fields > *{min-width:0}
+  .field label{
+    display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:8px;
+  }
+  .field label .hi{font-size:1.3em;letter-spacing:.02em;text-transform:none;margin-right:6px}
+  .field input{
+    width:100%;font-family:var(--font-dev);font-size:16px;color:var(--cream);
+    background:rgba(0,0,0,.22);border:1px solid var(--border);border-radius:2px;padding:12px 15px;
+  }
+  .field input:focus{outline:none;border-color:var(--gold)}
+  .share-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .share-status{font-size:14px;color:var(--gold);margin:16px 0 0;min-height:0}
+  .share-status:empty{display:none}
+  .share-status .en{display:block;font-size:.82em;color:var(--text-dim)}
+  .share-hint{
+    margin:14px 0 0;font-size:13.5px;line-height:1.65;color:var(--text-dim);
+    border-left:2px solid var(--border-bright);padding-left:14px;
+  }
+  .share-hint .en{font-size:.86em;display:block;margin-top:.35em;opacity:.85}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:clamp(64px,9vw,110px);
+    border-top:1px solid var(--border);
+    padding:34px 0 44px;
+    text-align:center;color:var(--text-dim);font-size:13.5px;line-height:1.9;
+  }
+  footer .credit{
+    display:block;font-size:12px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--gold);
+  }
+  footer .muhurat{display:block;margin-top:14px;font-size:15px;letter-spacing:.02em;opacity:.9}
+  footer .muhurat .en{
+    display:block;margin-top:.25em;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.85;
+  }
+
+  /* ---------- rangoli ---------- */
+  .rangoli{display:flex;justify-content:center;padding:clamp(40px,6vw,64px) 0 0;opacity:.85}
+  .rangoli svg{width:min(300px,68vw);height:auto}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+  .eyebrow__sub{display:inline}
+  @media (max-width:620px){
+    .eyebrow{letter-spacing:.16em;font-size:11px}
+    .eyebrow__sub{display:none}
+    .pair--head > .en{font-size:.55em}
+  }
+
+  @media (max-width:720px){
+    .fields{grid-template-columns:1fr}
+    .lamps__stage{gap:2px}
+    .diya{--size:clamp(56px,17vw,84px)}
+    .hero{padding-top:clamp(40px,7vh,64px)}
+    .rule{margin:44px auto}
+    .btn{padding:12px 20px;font-size:13px}
+    .btn .hi{font-size:14px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{
+      animation-duration:.01ms !important;animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+    }
+    .star{opacity:.5}
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars" aria-hidden="true"></div>
+<canvas id="sky" aria-hidden="true"></canvas>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <p class="eyebrow pair pair--tight">
+        <span class="hi">दीपावली २०२६ <span class="dot">·</span> ८ नवंबर</span>
+        <span class="en">Diwali <span class="dot">·</span> 8 November 2026 <span class="dot">·</span> Kartik Amavasya</span>
+      </p>
+
+      <p class="dev-line">शुभ दीपावली</p>
+      <h1>Happy<em>Diwali</em></h1>
+
+      <p class="hero__hindi">रोशनी, मिठाई और अपनों का साथ</p>
+
+      <p class="hero__to" id="heroTo">
+        <span class="pair">
+          <span class="hi">उन सबके लिए, जिन्हें थोड़ी और रोशनी चाहिए</span>
+          <span class="en">For everyone who could use a little more light</span>
+        </span>
+      </p>
+
+      <p class="hero__lead pair">
+        <span class="hi">आपका घर रोशनी से भरा रहे, मेज़ मिठाई से, और साल उन खबरों से जो सुनकर मन खुश हो जाए।</span>
+        <span class="en">May your home be full of light, your table full of sweets, and your year full of news worth sharing.</span>
+      </p>
+
+      <div class="hero__actions">
+        <button class="btn btn--solid" id="lightAll" type="button">
+          <span class="pair pair--btn">
+            <span class="hi">दीये जलाइए</span>
+            <span class="en">Light the diyas</span>
+          </span>
+        </button>
+        <a class="btn" href="#wish">
+          <span class="pair pair--btn">
+            <span class="hi">दुआ लिखिए</span>
+            <span class="en">Leave a wish</span>
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ DIYAS ============ -->
+  <section class="lamps wrap" aria-labelledby="lampsTitle">
+    <h2 id="lampsTitle" class="eyebrow pair pair--tight" style="text-align:center">
+      <span class="hi">देहरी के पाँच दीये</span>
+      <span class="en">Five lamps on the threshold</span>
+    </h2>
+    <div class="lamps__stage" id="diyaStage"></div>
+    <p class="lamps__count pair" id="lampsCount"></p>
+    <p class="lamps__done pair" id="lampsDone">
+      <span class="hi">सब दीप जल उठे — पूरा घर रोशन है।</span>
+      <span class="en">All five are lit — the whole house is glowing.</span>
+    </p>
+  </section>
+
+  <div class="rule" aria-hidden="true"><span></span></div>
+
+  <!-- ============ WISHES ============ -->
+  <section class="wrap" aria-labelledby="wishesTitle">
+    <div class="section-head">
+      <p class="eyebrow pair pair--tight">
+        <span class="hi">आपके लिए तीन शुभकामनाएँ</span>
+        <span class="en">Three wishes for you</span>
+      </p>
+      <h2 id="wishesTitle">
+        <span class="hi">दीये असल में क्या कहते हैं</span>
+        <span class="en">What the lamps are really saying</span>
+      </h2>
+      <p class="intro pair">
+        <span class="hi">दिवाली कभी शोर के बारे में नहीं थी। ठीक से देखिए तो यह एक बहुत पुरानी, बहुत ज़िद्दी उम्मीद है — कि रोशनी जीतती है।</span>
+        <span class="en">Diwali has never been about the noise. Strip it back and it is a very old, very stubborn hope: that light wins.</span>
+      </p>
+    </div>
+
+    <div class="wish-grid">
+      <article class="wish-card" style="--i:0">
+        <span class="wish-card__num">01</span>
+        <span class="wish-card__dev">ज्योति</span>
+        <h3>
+          <span class="hi">अंधकार पर प्रकाश</span>
+          <span class="en">Light over darkness</span>
+        </h3>
+        <p class="pair">
+          <span class="hi">एक छोटा दीया काफ़ी होता है। अंधेरा ज़ोर से नहीं हारता — रोशनी आते ही वह चुपचाप चला जाता है।</span>
+          <span class="en">One small flame is enough. Darkness never wins by force — it simply leaves when a lamp is lit.</span>
+        </p>
+      </article>
+
+      <article class="wish-card" style="--i:1">
+        <span class="wish-card__num">02</span>
+        <span class="wish-card__dev">समृद्धि</span>
+        <h3>
+          <span class="hi">सुख-समृद्धि</span>
+          <span class="en">Prosperity, quietly</span>
+        </h3>
+        <p class="pair">
+          <span class="hi">घर में बरकत रहे, मेहनत का पूरा फल मिले, और जेब में उम्मीद से थोड़ा ज़्यादा बच जाए।</span>
+          <span class="en">Work that rewards you, a home that holds you, and money that stretches a little further than expected.</span>
+        </p>
+      </article>
+
+      <article class="wish-card" style="--i:2">
+        <span class="wish-card__num">03</span>
+        <span class="wish-card__dev">अपनापन</span>
+        <h3>
+          <span class="hi">अपनों का साथ</span>
+          <span class="en">Togetherness</span>
+        </h3>
+        <p class="pair">
+          <span class="hi">मिठाई बाँटने से ही मीठी लगती है। दरवाज़ा खुला रहे, फ़ोन पर अच्छी खबर आती रहे, और अपने पास ही रहें।</span>
+          <span class="en">Sweets always taste better shared. May your door stay open, your phone stay busy with good news, and your people stay close.</span>
+        </p>
+      </article>
+    </div>
+
+    <div class="shloka">
+      <p class="sanskrit">असतो मा सद्गमय । तमसो मा ज्योतिर्गमय ।।</p>
+      <p class="hindi">हे प्रभु, हमें असत्य से सत्य की ओर, और अंधकार से प्रकाश की ओर ले चलिए।</p>
+      <p class="english">Lead me from untruth to truth, from darkness to light.</p>
+      <cite>बृहदारण्यक उपनिषद १.३.२८ · Bṛhadāraṇyaka Upaniṣad 1.3.28</cite>
+    </div>
+  </section>
+
+  <div class="rangoli" aria-hidden="true"><svg id="rangoli" viewBox="0 0 300 300"></svg></div>
+
+  <!-- ============ WISH WALL ============ -->
+  <section class="wrap wall" id="wish" aria-labelledby="wallTitle">
+    <div class="section-head">
+      <p class="eyebrow pair pair--tight">
+        <span class="hi">मन की दीवार</span>
+        <span class="en">The wish wall</span>
+      </p>
+      <h2 id="wallTitle">
+        <span class="hi">एक दुआ यहाँ छोड़ जाइए</span>
+        <span class="en">Leave one wish behind</span>
+      </h2>
+      <p class="intro pair">
+        <span class="hi">लिखिए, उड़ा दीजिए, और वह दीवार पर बाकी दुआओं के साथ जुड़ जाएगी। यह सिर्फ़ आपके ब्राउज़र में रहती है।</span>
+        <span class="en">Type it, set it free, and it joins the others on the wall. It stays in this browser, just for you.</span>
+      </p>
+    </div>
+
+    <form class="wish-form" id="wishForm" autocomplete="off">
+      <input id="wishInput" type="text" maxlength="140" placeholder="आने वाले साल के लिए एक दुआ… (a wish for the year ahead)" aria-label="आपकी दुआ / your wish">
+      <button class="btn btn--solid" type="submit">
+        <span class="pair pair--btn">
+          <span class="hi">उड़ा दीजिए</span>
+          <span class="en">Set it free</span>
+        </span>
+      </button>
+    </form>
+
+    <div class="wall__list" id="wallList"></div>
+  </section>
+
+  <!-- ============ PERSONALISE ============ -->
+  <section class="wrap" style="margin-top:clamp(64px,9vw,104px)" aria-labelledby="shareTitle">
+    <div class="card card--hero">
+      <h2 id="shareTitle">
+        <span class="hi">इसे उनके नाम कीजिए</span>
+        <span class="en">Make it theirs</span>
+      </h2>
+      <p class="note pair">
+        <span class="hi">नाम लिखिए और WhatsApp पर भेज दीजिए। पेज उन्हें नाम से पुकारेगा।</span>
+        <span class="en">Add a name and send it on WhatsApp. The page will greet them by name.</span>
+      </p>
+
+      <div class="fields">
+        <div class="field">
+          <label for="toField"><span class="hi">किसके लिए</span> To</label>
+          <input id="toField" type="text" maxlength="40" placeholder="उनका नाम / their name" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="fromField"><span class="hi">किसकी ओर से</span> From</label>
+          <input id="fromField" type="text" maxlength="40" placeholder="आपका नाम / your name" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="share-row">
+        <button class="btn btn--solid" id="shareWhats" type="button">
+          <span class="pair pair--btn">
+            <span class="hi">WhatsApp पर भेजिए</span>
+            <span class="en">Send on WhatsApp</span>
+          </span>
+        </button>
+        <button class="btn" id="copyLink" type="button">
+          <span class="pair pair--btn">
+            <span class="hi">लिंक कॉपी कीजिए</span>
+            <span class="en">Copy link</span>
+          </span>
+        </button>
+        <button class="btn" id="resetLink" type="button">
+          <span class="pair pair--btn">
+            <span class="hi">रीसेट</span>
+            <span class="en">Reset</span>
+          </span>
+        </button>
+      </div>
+      <p class="share-status pair" id="shareStatus" role="status" aria-live="polite"></p>
+      <p class="share-hint pair" id="shareHint" hidden></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span class="credit">Made by Nitin</span>
+      <span class="muhurat">
+        <span class="hi">लक्ष्मी पूजा मुहूर्त · नई दिल्ली · शाम 5:54 – 7:50</span>
+        <span class="en">Lakshmi Puja muhurat · New Delhi · 5:54 – 7:50 pm</span>
+      </span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------------------------------------------------------------- state */
+  var params = new URLSearchParams(window.location.search);
+  var DEFAULT_FROM = 'Nitin';
+  var state = {
+    to: (params.get('to') || '').slice(0, 40),
+    from: (params.get('from') || DEFAULT_FROM).slice(0, 40)
+  };
+
+  function safeName(v) {
+    return String(v || '').replace(/[<>]/g, '').trim().slice(0, 40);
+  }
+
+  /* --------------------------------------------------------------- stars */
+  (function stars() {
+    var host = document.getElementById('stars');
+    var n = window.innerWidth < 700 ? 55 : 110;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement('span');
+      s.className = 'star';
+      var size = Math.random() < 0.85 ? 1.4 : 2.4;
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.left = (Math.random() * 100).toFixed(2) + '%';
+      s.style.top = (Math.random() * 92).toFixed(2) + '%';
+      s.style.setProperty('--dur', (3 + Math.random() * 5).toFixed(2) + 's');
+      s.style.setProperty('--delay', (Math.random() * 5).toFixed(2) + 's');
+      s.style.opacity = (0.15 + Math.random() * 0.55).toFixed(2);
+      frag.appendChild(s);
+    }
+    host.appendChild(frag);
+  })();
+
+  /* ------------------------------------------------------------ fireworks */
+  var canvas = document.getElementById('sky');
+  var ctx = canvas.getContext('2d');
+  var particles = [];
+  var running = false;
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+  function sizeCanvas() {
+    canvas.width = Math.floor(window.innerWidth * dpr);
+    canvas.height = Math.floor(window.innerHeight * dpr);
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  sizeCanvas();
+  window.addEventListener('resize', sizeCanvas);
+
+  var PALETTE = [
+    ['#ffd98a', '#e9bb63'],
+    ['#ffb87a', '#ef8a3c'],
+    ['#ffe9c4', '#f7ecd8'],
+    ['#f0a07a', '#d9623f'],
+    ['#c9d6a8', '#7fa07a']
+  ];
+
+  function burst(x, y, strength) {
+    if (reduceMotion) return;
+    strength = strength || 1;
+    var count = Math.round(46 * strength);
+    var pair = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+    for (var i = 0; i < count; i++) {
+      var angle = (Math.PI * 2 * i) / count + Math.random() * 0.22;
+      var speed = (1.6 + Math.random() * 3.4) * strength;
+      particles.push({
+        x: x, y: y,
+        px: x, py: y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        decay: 0.008 + Math.random() * 0.012,
+        color: Math.random() < 0.55 ? pair[0] : pair[1],
+        r: 0.9 + Math.random() * 1.3
+      });
+    }
+    if (!running) { running = true; requestAnimationFrame(tick); }
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      p.px = p.x; p.py = p.y;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.028;
+      p.vx *= 0.988;
+      p.vy *= 0.988;
+      p.life -= p.decay;
+      if (p.life <= 0) { particles.splice(i, 1); continue; }
+      ctx.globalAlpha = Math.max(p.life, 0);
+      ctx.strokeStyle = p.color;
+      ctx.lineWidth = p.r;
+      ctx.beginPath();
+      ctx.moveTo(p.px, p.py);
+      ctx.lineTo(p.x, p.y);
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    if (particles.length) {
+      requestAnimationFrame(tick);
+    } else {
+      running = false;
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    }
+  }
+
+  function burstAtEl(el, strength) {
+    var r = el.getBoundingClientRect();
+    burst(r.left + r.width / 2, r.top + r.height * 0.36, strength || 0.8);
+  }
+
+  /* ------------------------------------------------------------- diyas */
+  var stage = document.getElementById('diyaStage');
+  var countEl = document.getElementById('lampsCount');
+  var doneEl = document.getElementById('lampsDone');
+  var TOTAL = 5;
+
+  function diyaMarkup(i) {
+    return '' +
+      '<svg viewBox="0 0 120 132" role="img" aria-hidden="true">' +
+        '<defs>' +
+          '<linearGradient id="clay' + i + '" x1="0" y1="0" x2="0" y2="1">' +
+            '<stop offset="0" stop-color="#cf6a42"/><stop offset="1" stop-color="#7a2a1b"/>' +
+          '</linearGradient>' +
+          '<radialGradient id="halo' + i + '">' +
+            '<stop offset="0" stop-color="#ffcf7a" stop-opacity=".55"/>' +
+            '<stop offset="0.55" stop-color="#ffb45c" stop-opacity=".18"/>' +
+            '<stop offset="1" stop-color="#ffb45c" stop-opacity="0"/>' +
+          '</radialGradient>' +
+          '<linearGradient id="flame' + i + '" x1="0" y1="1" x2="0" y2="0">' +
+            '<stop offset="0" stop-color="#e2542a"/>' +
+            '<stop offset="0.5" stop-color="#f9a03c"/>' +
+            '<stop offset="1" stop-color="#ffe9a8"/>' +
+          '</linearGradient>' +
+        '</defs>' +
+        '<circle class="diya__halo" cx="60" cy="62" r="54" fill="url(#halo' + i + ')"/>' +
+        '<g class="diya__flame">' +
+          '<path d="M60 32 C 68 47, 75 56, 75 67 C 75 77, 68 83, 60 83 C 52 83, 45 77, 45 67 C 45 56, 52 47, 60 32 Z" fill="url(#flame' + i + ')"/>' +
+          '<path d="M60 51 C 64 59, 66 65, 66 70 C 66 75, 63 78, 60 78 C 57 78, 54 75, 54 70 C 54 65, 56 59, 60 51 Z" fill="#fff6d6" opacity=".92"/>' +
+        '</g>' +
+        '<g class="diya__body">' +
+          '<path d="M60 84 L60 77" stroke="#2a120d" stroke-width="3.4" stroke-linecap="round"/>' +
+          '<path d="M17 84 C 20 107, 42 121, 60 121 C 78 121, 100 107, 103 84 Z" fill="url(#clay' + i + ')"/>' +
+          '<ellipse cx="60" cy="84" rx="43" ry="8.6" fill="#4e1a12"/>' +
+          '<ellipse cx="60" cy="84" rx="43" ry="8.6" fill="none" stroke="#e9bb63" stroke-opacity=".6" stroke-width="1.3"/>' +
+          '<path d="M31 93 C 36 105, 48 111, 58 112" stroke="#ffd9a8" stroke-opacity=".32" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+        '</g>' +
+      '</svg>';
+  }
+
+  var diyas = [];
+  for (var d = 0; d < TOTAL; d++) {
+    var el = document.createElement('span');
+    el.className = 'diya';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = diyaMarkup(d);
+    stage.appendChild(el);
+    diyas.push(el);
+  }
+
+  function litCount() {
+    return diyas.filter(function (x) { return x.classList.contains('lit'); }).length;
+  }
+
+  function updateCount() {
+    var n = litCount();
+    countEl.innerHTML = n >= TOTAL
+      ? '<span class="hi">पाँचों दीये जल चुके हैं</span><span class="en">All five are lit</span>'
+      : '<span class="hi">नीचे बटन दबाइए — पाँचों दीये एक साथ जलेंगे</span><span class="en">Press the button — all five light together</span>';
+    if (n >= TOTAL) {
+      doneEl.classList.add('show');
+      if (!reduceMotion) {
+        setTimeout(function () { burst(window.innerWidth * 0.5, window.innerHeight * 0.24, 1.25); }, 120);
+        setTimeout(function () { burst(window.innerWidth * 0.24, window.innerHeight * 0.18, 0.95); }, 520);
+        setTimeout(function () { burst(window.innerWidth * 0.76, window.innerHeight * 0.2, 0.95); }, 780);
+      }
+    } else {
+      doneEl.classList.remove('show');
+    }
+  }
+
+  function lightDiya(btn) {
+    btn.classList.add('lit');
+  }
+
+  document.getElementById('lightAll').addEventListener('click', function () {
+    diyas.forEach(function (btn) { lightDiya(btn); });
+    burstAtEl(stage, 1.2);
+    updateCount();
+  });
+
+  updateCount();
+
+  /* ------------------------------------------------------------ rangoli */
+  (function rangoli() {
+    var svg = document.getElementById('rangoli');
+    if (!svg) return;
+    var NS = 'http://www.w3.org/2000/svg';
+    var c = 150;
+    var petals = 16;
+
+    function ring(r, stroke, width, dash) {
+      var el = document.createElementNS(NS, 'circle');
+      el.setAttribute('cx', c); el.setAttribute('cy', c); el.setAttribute('r', r);
+      el.setAttribute('fill', 'none');
+      el.setAttribute('stroke', stroke);
+      el.setAttribute('stroke-width', width);
+      if (dash) el.setAttribute('stroke-dasharray', dash);
+      svg.appendChild(el);
+    }
+
+    ring(138, 'rgba(233,187,99,.28)', 1);
+    ring(104, 'rgba(233,187,99,.22)', 1, '2 7');
+    ring(46, 'rgba(233,187,99,.3)', 1);
+
+    for (var i = 0; i < petals; i++) {
+      var g = document.createElementNS(NS, 'g');
+      g.setAttribute('transform', 'rotate(' + (360 / petals) * i + ' 150 150)');
+      var petal = document.createElementNS(NS, 'ellipse');
+      petal.setAttribute('cx', c); petal.setAttribute('cy', 62);
+      petal.setAttribute('rx', 13); petal.setAttribute('ry', 30);
+      petal.setAttribute('fill', 'none');
+      petal.setAttribute('stroke', i % 2 ? 'rgba(239,138,60,.5)' : 'rgba(233,187,99,.45)');
+      petal.setAttribute('stroke-width', '1.1');
+      g.appendChild(petal);
+
+      var dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', c); dot.setAttribute('cy', 20);
+      dot.setAttribute('r', 2.6);
+      dot.setAttribute('fill', i % 2 ? 'rgba(233,187,99,.65)' : 'rgba(127,160,122,.55)');
+      g.appendChild(dot);
+
+      svg.appendChild(g);
+    }
+
+    var inner = document.createElementNS(NS, 'circle');
+    inner.setAttribute('cx', c); inner.setAttribute('cy', c); inner.setAttribute('r', 13);
+    inner.setAttribute('fill', 'none');
+    inner.setAttribute('stroke', 'rgba(255,217,138,.6)');
+    inner.setAttribute('stroke-width', '1.2');
+    svg.appendChild(inner);
+
+    var core = document.createElementNS(NS, 'circle');
+    core.setAttribute('cx', c); core.setAttribute('cy', c); core.setAttribute('r', 4);
+    core.setAttribute('fill', 'rgba(255,217,138,.75)');
+    svg.appendChild(core);
+  })();
+
+  /* ----------------------------------------------------------- wish wall */
+  var STORE = 'diwali-wishes-v1';
+  var wallList = document.getElementById('wallList');
+  var wishForm = document.getElementById('wishForm');
+  var wishInput = document.getElementById('wishInput');
+
+  function loadWishes() {
+    try {
+      var raw = localStorage.getItem(STORE);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr.slice(0, 60) : [];
+    } catch (e) { return []; }
+  }
+
+  function saveWishes(arr) {
+    try { localStorage.setItem(STORE, JSON.stringify(arr.slice(0, 60))); } catch (e) {}
+  }
+
+  function renderWishes() {
+    var wishes = loadWishes();
+    wallList.innerHTML = '';
+    if (!wishes.length) {
+      var empty = document.createElement('p');
+      empty.className = 'wall__empty';
+      empty.innerHTML =
+        '<span class="hi">अभी यहाँ कुछ नहीं है। आपकी दुआ इस दीवार का पहला दीया बन सकती है।</span>' +
+        '<span class="en">Nothing here yet. Your wish would be the first lamp on this wall.</span>';
+      wallList.appendChild(empty);
+      return;
+    }
+    wishes.forEach(function (w) {
+      var fig = document.createElement('figure');
+      fig.className = 'lantern';
+      var p = document.createElement('p');
+      p.textContent = w.text;
+      var cap = document.createElement('figcaption');
+      cap.textContent = w.from
+        ? w.from + ' की ओर से · from ' + w.from
+        : 'आने वाले साल के लिए एक दुआ · a wish for the year ahead';
+      fig.appendChild(p);
+      fig.appendChild(cap);
+      wallList.appendChild(fig);
+    });
+  }
+
+  wishForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var text = wishInput.value.trim().slice(0, 140);
+    if (!text) { wishInput.focus(); return; }
+    var wishes = loadWishes();
+    wishes.unshift({ text: text, from: state.from || '', at: Date.now() });
+    saveWishes(wishes);
+    wishInput.value = '';
+    renderWishes();
+    var r = wishForm.getBoundingClientRect();
+    burst(r.left + r.width * 0.5, r.top + 10, 0.75);
+  });
+
+  renderWishes();
+
+  /* --------------------------------------------------------- personalise */
+  var heroTo = document.getElementById('heroTo');
+  var toField = document.getElementById('toField');
+  var fromField = document.getElementById('fromField');
+  var shareStatus = document.getElementById('shareStatus');
+
+  function paintNames() {
+    if (state.to) {
+      heroTo.innerHTML =
+        '<span class="pair">' +
+          '<span class="hi">' + escapeHtml(state.to) + ' के लिए</span>' +
+          '<span class="en">For ' + escapeHtml(state.to) + '</span>' +
+        '</span>';
+    } else {
+      heroTo.innerHTML =
+        '<span class="pair">' +
+          '<span class="hi">उन सबके लिए, जिन्हें थोड़ी और रोशनी चाहिए</span>' +
+          '<span class="en">For everyone who could use a little more light</span>' +
+        '</span>';
+    }
+    toField.value = state.to;
+    fromField.value = state.from;
+    document.title = state.to
+      ? 'Happy Diwali, ' + state.to + ' · शुभ दीपावली'
+      : 'Happy Diwali · शुभ दीपावली — a page full of light';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function buildLink() {
+    var url = new URL(location.origin + location.pathname);
+    url.search = '';
+    url.hash = '';
+    if (state.to) url.searchParams.set('to', state.to);
+    if (state.from) url.searchParams.set('from', state.from);
+    return url.toString();
+  }
+
+  function syncFromFields() {
+    state.to = safeName(toField.value);
+    state.from = safeName(fromField.value);
+    paintNames();
+    shareStatus.innerHTML = '';
+    if (window.history && window.history.replaceState) {
+      try { window.history.replaceState(null, '', buildLink()); } catch (err) {}
+    }
+  }
+
+  toField.addEventListener('input', syncFromFields);
+  fromField.addEventListener('input', syncFromFields);
+
+  /* लिंक किसी और के फ़ोन पर खुलेगा या नहीं — उसका हिसाब */
+  var HOSTED = location.protocol === 'http:' || location.protocol === 'https:';
+  var TEMP_HOST = !HOSTED ||
+    /(^|\.)(localhost|127\.0\.0\.1)$/.test(location.hostname) ||
+    /amazonaws\.com|preview|sandbox|ngrok|gitpod|replit/i.test(location.hostname);
+  var shareHint = document.getElementById('shareHint');
+
+  if (!HOSTED) {
+    shareHint.hidden = false;
+    shareHint.innerHTML =
+      '<span class="hi">यह पेज अभी आपकी फ़ाइल से खुल रहा है, इसलिए लिंक आपके ही फ़ोन/कंप्यूटर का पता है — किसी और के फ़ोन पर नहीं खुलेगा। WhatsApp बटन से सीधे संदेश भेजिए, या पेज को Netlify / GitHub Pages पर होस्ट कीजिए।</span>' +
+      '<span class="en">This page is open from a file on your device, so a link points at your own computer and will not open on anyone else\'s phone. Use the WhatsApp button to send the message itself, or host the page on Netlify / GitHub Pages.</span>';
+  } else if (TEMP_HOST) {
+    shareHint.hidden = false;
+    shareHint.innerHTML =
+      '<span class="hi">यह पता अस्थायी प्रीव्यू का है — इसलिए दूसरों के ब्राउज़र में लिंक नहीं खुल रहा। पक्का लिंक पाने के लिए इसी फ़ाइल को Netlify Drop या GitHub Pages पर डालिए; तब वही लिंक हर फ़ोन पर खुलेगा। तब तक WhatsApp बटन से पूरा संदेश भेजिए।</span>' +
+      '<span class="en">This is a temporary preview address, which is why the link will not open in anyone else\'s browser. Publish this same file on Netlify Drop or GitHub Pages to get a permanent link that works everywhere. Until then, the WhatsApp button sends the whole greeting as text.</span>';
+  }
+
+  function greetingText() {
+    var txt = (state.to ? state.to + ', ' : '') +
+      'दिवाली की ढेर सारी शुभकामनाएँ! रोशनी, मिठाई और अपनों का साथ। Happy Diwali!';
+    if (state.from) txt += ' — ' + state.from;
+    return txt;
+  }
+
+  document.getElementById('shareWhats').addEventListener('click', function () {
+    var msg = greetingText();
+    if (!TEMP_HOST) msg += '\n' + buildLink();
+    var wa = 'https://wa.me/?text=' + encodeURIComponent(msg);
+    var win = window.open(wa, '_blank', 'noopener');
+    if (!win) window.location.href = wa;
+    shareStatus.innerHTML = !TEMP_HOST
+      ? '<span class="hi">WhatsApp खुल रहा है — संदेश के साथ लिंक भी जा रहा है।</span><span class="en">Opening WhatsApp with the greeting and the link.</span>'
+      : '<span class="hi">WhatsApp खुल रहा है — संदेश तैयार है।</span><span class="en">Opening WhatsApp with the greeting ready.</span>';
+  });
+
+  document.getElementById('copyLink').addEventListener('click', function () {
+    var payload = TEMP_HOST ? greetingText() : greetingText() + '\n' + buildLink();
+    var btn = this;
+    function done(ok) {
+      if (!ok) {
+        shareStatus.innerHTML = '<span class="hi">कॉपी नहीं हो सका — संदेश चुनकर खुद कॉपी कर लीजिए।</span><span class="en">Copy failed — select the text and copy it manually.</span>';
+        return;
+      }
+      shareStatus.innerHTML = !TEMP_HOST
+        ? '<span class="hi">संदेश और लिंक कॉपी हो गया — अब भेज दीजिए।</span><span class="en">Message and link copied — go send it.</span>'
+        : '<span class="hi">संदेश कॉपी हो गया (लिंक नहीं, क्योंकि यह पता अस्थायी है)। WhatsApp में पेस्ट कर दीजिए।</span><span class="en">Copied the greeting text (no link, because this address is temporary). Paste it in WhatsApp.</span>';
+      var r = btn.getBoundingClientRect();
+      burst(r.left + r.width / 2, r.top, 0.6);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(payload).then(function () { done(true); }, function () { done(false); });
+    } else {
+      done(false);
+    }
+  });
+
+  document.getElementById('resetLink').addEventListener('click', function () {
+    state.to = '';
+    state.from = DEFAULT_FROM;
+    paintNames();
+    if (window.history && window.history.replaceState) {
+      try { window.history.replaceState(null, '', window.location.pathname); } catch (err) {}
+    }
+    shareStatus.innerHTML =
+      '<span class="hi">साफ़ कर दिया।</span><span class="en">Cleared.</span>';
+  });
+
+  paintNames();
+
+  /* ------------------------------------------------------ ambient bursts */
+  if (!reduceMotion) {
+    setTimeout(function () {
+      burst(window.innerWidth * 0.22, window.innerHeight * 0.16, 0.9);
+    }, 900);
+    setTimeout(function () {
+      burst(window.innerWidth * 0.74, window.innerHeight * 0.12, 0.8);
+    }, 1700);
+  }
+
+  /* tap the sky for a spark */
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('button, a, input, form, label')) return;
+    burst(e.clientX, e.clientY, 0.7);
+  });
+
+})();
+</script>
+</body>
+</html>
